@@ -3,12 +3,14 @@ public class Book
   private int rating;
   private String title;
   private String author;
+  private String time;
 
   /*** Constructor ****/
   public Book(String t, String a)
   {
-  title = t;
-  author = a;
+    title = t;
+    author = a;
+    this.time = CalendarAll.returnTime();
   }
 
    /*** Accessor methods ***/
@@ -26,11 +28,16 @@ public class Book
 
   public String toString()  
   {
-  String info = "\"" + title + "\", written by " + author;
-  if (rating != 0)  
-  info += ", rating is " + rating;
+    String info = "\"" + title + "\", written by " + author;
+    if (rating != 0)  
+      info += ", rating is " + rating;
+    info += ". Created on " + time;
 
-  return info;
+    return info;
+  }
+
+  public String getTime() {
+    return time;
   }
 
   // Step 23 - 29
@@ -41,7 +48,7 @@ public class Book
   // if(title.equals(b.title) && author.equals(b.author))
   // if(b.title.equals(title) && b.author.equals(author))
   if(this.title.equals(b.title) && this.author.equals(b.author))
-    return true;  
+    return true; 
   return false;
 
   }
@@ -62,9 +69,10 @@ public class Book
   if ((rating + r >= 0) && (rating + r <= 10))
     rating += r;
 
-  r = 10;// Step 9: changing the param here has no effect in the runner
+  System.out.println("Adjusting rating by " + r);
 
   }
+
 
 }
 

@@ -1,10 +1,12 @@
 public class Song{
   private String title;
   private int rating;
+  private String time;
 
   public Song(String title){
     this.title = title;
     this.rating = 0;
+    this.time = CalendarAll.returnTime();
   }
 
   public String getTitle(){
@@ -25,11 +27,16 @@ public class Song{
     }   
   }
 
+  public String getTime() {
+    return time;
+  }
+
   public String toString() {
     String info = "\"" + title + "\"";
     if (rating != 0) {
       info += ", rating is " + rating;
     }
+    info += ". Created on " + time;
     return info;
   }
 }
